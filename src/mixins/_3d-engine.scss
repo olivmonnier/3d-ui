@@ -1,0 +1,88 @@
+@mixin transform-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1) {
+  --pos-x: #{$posX};
+  --pos-y: #{$posY};
+  --pos-z: #{$posZ};
+  --rot-x: #{$rotX};
+  --rot-y: #{$rotY};
+  --rot-z: #{$rotZ};
+  --scale: #{$scale};
+  --transform-duration: .3s;
+
+  transform: 
+    translateX(-50%)
+    translateY(-50%)
+    translateX(var(--pos-x))
+    translateY(var(--pos-y))
+    translateZ(var(--pos-z))
+    rotateX(var(--rot-x))
+    rotateY(var(--rot-y))
+    rotateZ(var(--rot-z))
+    scaleX(var(--scale))
+    scaleY(var(--scale))
+    scaleZ(var(--scale));
+  transition: transform var(--transform-duration) linear;
+}
+
+@mixin element-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $origin: center) {
+  --origin: #{$origin};
+  
+  @include transform-3d($posX, $posY, $posZ, $rotX, $rotY, $rotZ, $scale);
+  transform-origin: var(--origin);
+  position: absolute;
+}
+
+@mixin group-elements-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $width: 100px, $height: 100px) {
+  --width: #{$width};
+  --height: #{$height};
+
+  @include transform-3d($posX, $posY, $posZ, $rotX, $rotY, $rotZ, $scale);
+  position: absolute;
+  width: var(--width);
+  height: var(--height);
+}
+
+@mixin viewport($width: 500px, $height: 500px, $perspective: 500px) {
+  --width: #{$width};
+  --height: #{$height};
+  --perspective: #{$perspective};
+
+  width: var(--width);
+  height: var(--height);
+  overflow: hidden;
+  position: relative;
+  perspective: var(--perspective);
+
+  & * {
+    transform-style: preserve-3d; box-sizing: border-box;
+  }
+}
+
+@mixin camera($showTarget: true) {
+  --camera-position-x: 0px;
+  --camera-position-y: 0px;
+  --camera-position-z: 0px;
+  --camera-rotation-x: 0deg;
+  --camera-rotation-y: 0deg;
+  --camera-rotation-z: 0deg;
+
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @if $showTarget {
+    border: 2px solid red;
+  }
+}
+
+@mixin scene {
+  transition: .5s linear;
+  transform: 
+    translateX(var(--camera-position-x))
+    translateY(var(--camera-position-y))
+    translateZ(var(--camera-position-z))
+    rotateX(var(--camera-rotation-x))
+    rotateY(var(--camera-rotation-y))
+    rotateZ(var(--camera-rotation-z));
+}

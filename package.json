@@ -1,0 +1,17 @@
+{
+  "name": "sci-fi-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dest",
+    "sass": "node-sass src/main.scss dest/style.css",
+    "build": "yarn run clean && yarn run sass"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "rimraf": "^3.0.0"
+  }
+}
