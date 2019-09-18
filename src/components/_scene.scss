@@ -1,0 +1,10 @@
+.scene {
+  transition: .5s linear;
+  transform: 
+    translateX(var(--camera-position-x))
+    translateY(var(--camera-position-y))
+    translateZ(var(--camera-position-z))
+    rotateX(var(--camera-rotation-x))
+    rotateY(var(--camera-rotation-y))
+    rotateZ(var(--camera-rotation-z));
+}

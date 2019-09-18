@@ -1,0 +1,18 @@
+.camera {
+  --camera-position-x: #{$camera-pos-x};
+  --camera-position-y: #{$camera-pos-y};
+  --camera-position-z: #{$camera-pos-z};
+  --camera-rotation-x: #{$camera-rot-x};
+  --camera-rotation-y: #{$camera-rot-y};
+  --camera-rotation-z: #{$camera-rot-z};
+
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  @if $camera-target {
+    border: $camera-target-width solid red;
+  }
+}

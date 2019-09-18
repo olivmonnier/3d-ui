@@ -1,0 +1,15 @@
+.viewport {
+  --width: #{$viewport-width};
+  --height: #{$viewport-height};
+  --perspective: #{$viewport-perspective};
+
+  width: var(--width);
+  height: var(--height);
+  overflow: hidden;
+  position: relative;
+  perspective: var(--perspective);
+
+  & * {
+    transform-style: preserve-3d; box-sizing: border-box;
+  }
+}

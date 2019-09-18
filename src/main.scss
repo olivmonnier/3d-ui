@@ -1,30 +1,13 @@
 @import "variables";
 
+// Mixins
 @import "mixins/3d-engine";
 @import "mixins/shape";
 
-.viewport {
-  @include viewport;
-}
-
-.camera {
-  @include camera;
-}
-
-.scene {
-  @include scene;
-}
-
-.element {
-  @include element-3d;
-}
-
-.group-elements {
-  @include group-elements-3d;
-}
-
-@each $name, $value in $shapes {
-  .shape-#{$name} {
-    @include shape($value);
-  }
-}
+// Components
+@import "components/viewport";
+@import "components/camera";
+@import "components/scene";
+@import "components/element";
+@import "components/group-elements";
+@import "components/shape";

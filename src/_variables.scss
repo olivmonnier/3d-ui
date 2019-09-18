@@ -1,4 +1,20 @@
-$shapes: (
+// Viewport
+$viewport-width: 500px !default;
+$viewport-height: 500px !default;
+$viewport-perspective: 500px !default;
+
+// Camera
+$camera-pos-x: 0px !default;
+$camera-pos-y: 0px !default;
+$camera-pos-z: 0px !default;
+$camera-rot-x: 0deg !default;
+$camera-rot-y: 0deg !default;
+$camera-rot-z: 0deg !default;
+$camera-target: true !default;
+$camera-target-width: 2px !default;
+
+// Shape
+$list-shapes: (
   "triangle": polygon(50% 0,100% 100%,0 100%),
   "triangle-bottom": polygon(0 0,100% 0,50% 100%),
   "triangle-left": polygon(0 50%,100% 0,100% 100%),
