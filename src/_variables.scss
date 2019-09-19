@@ -1,3 +1,9 @@
+// Colors
+$black: #000 !default;
+
+// Transform
+$rotation-degrees: 0, 45, 90, 180, 360 !default;
+
 // Viewport
 $viewport-width: 500px !default;
 $viewport-height: 500px !default;
@@ -49,5 +55,6 @@ $list-shapes: (
   "ellispe": ellipse(25% 40% at 50% 50%)
 ) !default;
 
-// Transform
-$rotation-degrees: 0, 45, 90, 180, 360;
+// Cylinder
+$cylinder-bg: transparent !default;
+$cylinder-border: $black !default;

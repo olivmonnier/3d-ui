@@ -1,0 +1,27 @@
+// Example: http://cssdeck.com/labs/wrap-image-in-3d-cylinder-2
+.cylinder {
+  --width: 100px;
+  --height: 100px;
+  --depth: 200px;
+  --bg: #{$cylinder-bg};
+  --border: #{$cylinder-border};
+  
+  width: var(--width);
+  height: var(--height);
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+  }
+  &:before {
+    transform: translateZ(calc(var(--depth) / 2 * -1));
+  }
+  &:after {
+    transform: translateZ(calc(var(--depth) / 2));
+  }
+}
