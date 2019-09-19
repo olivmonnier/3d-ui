@@ -15,6 +15,7 @@ $camera-target-width: 2px !default;
 
 // Shape
 $list-shapes: (
+  "plane": polygon(0 0, 100% 0, 100% 100%, 0 100%),
   "triangle": polygon(50% 0,100% 100%,0 100%),
   "triangle-bottom": polygon(0 0,100% 0,50% 100%),
   "triangle-left": polygon(0 50%,100% 0,100% 100%),
@@ -46,4 +47,7 @@ $list-shapes: (
   "inset": inset(5% 20% 15% 10%),
   "circle": circle(50% at 50% 50%),
   "ellispe": ellipse(25% 40% at 50% 50%)
-);
+) !default;
+
+// Transform
+$rotation-degrees: 0, 45, 90, 180, 360;

@@ -1,5 +1,13 @@
+.shape {
+  @include shape-3d;
+}
+
 @each $name, $value in $list-shapes {
   .shape-#{$name} {
     @include shape($value);
   }
+}
+
+.group-shapes {
+  @include group-shapes-3d;
 }

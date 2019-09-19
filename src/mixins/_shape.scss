@@ -3,3 +3,21 @@
   clip-path: $geometry;
   shape-outside: $geometry;
 }
+
+@mixin shape-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $origin: center) {
+  --origin: #{$origin};
+  
+  @include transform-3d($posX, $posY, $posZ, $rotX, $rotY, $rotZ, $scale);
+  transform-origin: var(--origin);
+  position: absolute;
+}
+
+@mixin group-shapes-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $width: 100px, $height: 100px) {
+  --group-shapes-width: #{$width};
+  --group-shapes-height: #{$height};
+
+  @include transform-3d($posX, $posY, $posZ, $rotX, $rotY, $rotZ, $scale);
+  position: absolute;
+  width: var(--group-shapes-width);
+  height: var(--group-shapes-heigh);
+}

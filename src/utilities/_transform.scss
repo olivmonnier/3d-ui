@@ -1,0 +1,11 @@
+@each $degree in $rotation-degrees {
+  .rotate-x-#{$degree} {
+    --rot-x: #{$degree}deg !important;
+  }
+  .rotate-y-#{$degree} {
+    --rot-y: #{$degree}deg !important;
+  }
+  .rotate-z-#{$degree} {
+    --rot-z: #{$degree}deg !important;
+  }
+}

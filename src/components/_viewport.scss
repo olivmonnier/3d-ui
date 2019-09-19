@@ -1,13 +1,13 @@
 .viewport {
-  --width: #{$viewport-width};
-  --height: #{$viewport-height};
-  --perspective: #{$viewport-perspective};
+  --viewport-width: #{$viewport-width};
+  --viewport-height: #{$viewport-height};
+  --viewport-perspective: #{$viewport-perspective};
 
-  width: var(--width);
-  height: var(--height);
+  width: var(--viewport-width);
+  height: var(--viewport-height);
   overflow: hidden;
   position: relative;
-  perspective: var(--perspective);
+  perspective: var(--viewport-perspective);
 
   & * {
     transform-style: preserve-3d; box-sizing: border-box;

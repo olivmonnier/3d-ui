@@ -1,13 +1,14 @@
 @import "variables";
 
 // Mixins
-@import "mixins/3d-engine";
+@import "mixins/transform";
 @import "mixins/shape";
+
+// Utilities
+@import "utilities/transform";
 
 // Components
 @import "components/viewport";
 @import "components/camera";
 @import "components/scene";
-@import "components/element";
-@import "components/group-elements";
 @import "components/shape";
