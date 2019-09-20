@@ -5,6 +5,7 @@
 
   width: var(--width);
   height: var(--height);
+  transform-origin: center;
 
   > * {
     position: absolute;
@@ -13,22 +14,26 @@
     border: 1px solid black;
   }
   > :nth-child(1) {
-    transform: rotateY(180deg);
+    transform: 
+      translateZ(calc(var(--depth) / 2 * -1))
+      rotateY(180deg);
   }
   > :nth-child(2) {
     transform-origin: left;
     width: var(--depth);
     transform: 
+      translateZ(calc(var(--depth) / 2 * -1))
       rotateY(-90deg);
   }
   > :nth-child(3) {
     transform:
-      translateZ(var(--depth));
+      translateZ(calc(var(--depth) / 2));
   }
   > :nth-child(4) {
     width: var(--depth);
     transform-origin: right;
     transform: 
+      translateZ(calc(var(--depth) / 2 * -1))
       translateX(calc(var(--width) - var(--depth)))
       rotateY(90deg);
   }
