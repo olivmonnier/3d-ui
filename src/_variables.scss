@@ -54,7 +54,3 @@ $list-shapes: (
   "circle": circle(50% at 50% 50%),
   "ellispe": ellipse(25% 40% at 50% 50%)
 ) !default;
-
-// Cylinder
-$cylinder-bg: transparent !default;
-$cylinder-border: $black !default;
