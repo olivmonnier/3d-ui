@@ -2,7 +2,12 @@ $rotations: "x", "y", "z";
 
 @each $rotation in $rotations {
   $upper: to-upper-case($rotation);
-  $rule: translateX(-50%)translateY(-50%);
+  $rule: 
+    translateX(-50%)
+    translateY(-50%)
+    translateX(var(--pos-x))
+    translateY(var(--pos-y))
+    translateZ(var(--pos-z));
 
   .rotating-#{$rotation} {
     @include animation(rotating#{$upper}, 3s);
@@ -11,7 +16,7 @@ $rotations: "x", "y", "z";
   @include keyframe(rotating#{$upper}) {
     from {
       @if ($rotation == "x") {
-        transform: $rule + rotateX(0deg);
+        transform: $rule + rotateX(0deg)
       } @else if ($rotation == "y") {
         transform: $rule + rotateY(0deg);
       } @else if ($rotation == "z") {
