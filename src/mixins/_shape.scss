@@ -12,7 +12,7 @@
   position: absolute;
 }
 
-@mixin group-shapes-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $width: 100px, $height: 100px) {
+@mixin group-shapes-3d($posX: 0, $posY: 0, $posZ: 0, $rotX: 0deg, $rotY: 0deg, $rotZ: 0deg, $scale: 1, $width: 0px, $height: 0px) {
   --group-shapes-width: #{$width};
   --group-shapes-height: #{$height};
 
