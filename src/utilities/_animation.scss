@@ -17,19 +17,31 @@ $rotations: "x", "y", "z";
     from {
       @if ($rotation == "x") {
         transform: $rule + rotateX(0deg)
+          rotateY(var(--rot-y))
+          rotateZ(var(--rot-z));
       } @else if ($rotation == "y") {
-        transform: $rule + rotateY(0deg);
+        transform: $rule + rotateY(0deg)
+          rotateX(var(--rot-x))
+          rotateZ(var(--rot-z));
       } @else if ($rotation == "z") {
-        transform: $rule + rotateZ(0deg);
+        transform: $rule + rotateZ(0deg)
+          rotateX(var(--rot-x))
+          rotateY(var(--rot-y));
       }
     }
     to {
       @if ($rotation == "x") {
-        transform: $rule + rotateX(360deg);
+        transform: $rule + rotateX(360deg)
+          rotateY(var(--rot-y))
+          rotateZ(var(--rot-z));
       } @else if ($rotation == "y") {
-        transform: $rule + rotateY(360deg);
+        transform: $rule + rotateY(360deg)
+          rotateX(var(--rot-x))
+          rotateZ(var(--rot-z));
       } @else if ($rotation == "z") {
-        transform: $rule + rotateZ(360deg);
+        transform: $rule + rotateZ(360deg)
+          rotateX(var(--rot-x))
+          rotateY(var(--rot-y));
       }
     }
   }
