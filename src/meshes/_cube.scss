@@ -1,7 +1,7 @@
 .cube {
   --width: 100px;
-  --height: 100px;
-  --depth: 130px;
+  --height: var(--width);
+  --depth: var(--width);
 
   width: var(--width);
   height: var(--height);
@@ -14,22 +14,39 @@
     border: 1px solid black;
   }
   > :nth-child(1) {
+    height: var(--depth);
+    transform-origin: top;
+    transform: 
+      translateZ(calc(var(--depth) / 2))
+      rotateX(90deg)
+      rotateZ(180deg);
+  }
+  > :nth-child(2) {
+    height: var(--depth);
+    transform-origin: top;
+    transform:
+      translateY(var(--height))
+      translateZ(calc(var(--depth) / 2 * -1)) 
+      rotateX(-90deg)
+      rotateZ(180deg);
+  }
+  > :nth-child(3) {
     transform: 
       translateZ(calc(var(--depth) / 2 * -1))
       rotateY(180deg);
   }
-  > :nth-child(2) {
+  > :nth-child(4) {
     transform-origin: left;
     width: var(--depth);
     transform: 
       translateZ(calc(var(--depth) / 2 * -1))
       rotateY(-90deg);
   }
-  > :nth-child(3) {
+  > :nth-child(5) {
     transform:
       translateZ(calc(var(--depth) / 2));
   }
-  > :nth-child(4) {
+  > :nth-child(6) {
     width: var(--depth);
     transform-origin: right;
     transform: 
