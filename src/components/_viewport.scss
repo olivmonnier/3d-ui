@@ -3,6 +3,7 @@
   --viewport-height: #{$viewport-height};
   --viewport-perspective: #{$viewport-perspective};
 
+  margin: auto;
   width: var(--viewport-width);
   height: var(--viewport-height);
   overflow: hidden;

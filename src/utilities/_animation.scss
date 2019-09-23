@@ -1,0 +1,30 @@
+$rotations: "x", "y", "z";
+
+@each $rotation in $rotations {
+  $upper: to-upper-case($rotation);
+
+  .rotating-#{$rotation} {
+    @include animation(rotating#{$upper}, 3s);
+  }
+
+  @include keyframe(rotating#{$upper}) {
+    from {
+      @if ($rotation == "x") {
+        transform: rotateX(0deg);
+      } @else if ($rotation == "y") {
+        transform: rotateY(0deg);
+      } @else if ($rotation == "z") {
+        transform: rotateZ(0deg);
+      }
+    }
+    to {
+      @if ($rotation == "x") {
+        transform: rotateX(360deg);
+      } @else if ($rotation == "y") {
+        transform: rotateY(360deg);
+      } @else if ($rotation == "z") {
+        transform: rotateZ(360deg);
+      }
+    }
+  }
+}

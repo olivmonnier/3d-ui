@@ -1,10 +1,13 @@
 @import "variables";
 
 // Mixins
-@import "mixins/transform";
+@import "mixins/animation";
+@import "mixins/keyframe";
 @import "mixins/shape";
+@import "mixins/transform";
 
 // Utilities
+@import "utilities/animation";
 @import "utilities/transform";
 
 // Components
