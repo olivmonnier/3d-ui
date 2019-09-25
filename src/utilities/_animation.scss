@@ -1,7 +1,5 @@
-$rotations: "x", "y", "z";
-
-@each $rotation in $rotations {
-  $upper: to-upper-case($rotation);
+@each $axis in $axes {
+  $upper: to-upper-case($axis);
   $rule: 
     translateX(-50%)
     translateY(-50%)
@@ -9,36 +7,36 @@ $rotations: "x", "y", "z";
     translateY(var(--pos-y))
     translateZ(var(--pos-z));
 
-  .rotating-#{$rotation} {
+  .rotating-#{$axis} {
     @include animation(rotating#{$upper}, 3s);
   }
 
   @include keyframe(rotating#{$upper}) {
     from {
-      @if ($rotation == "x") {
+      @if ($axis == "x") {
         transform: $rule + rotateX(0deg)
           rotateY(var(--rot-y))
           rotateZ(var(--rot-z));
-      } @else if ($rotation == "y") {
+      } @else if ($axis == "y") {
         transform: $rule + rotateY(0deg)
           rotateX(var(--rot-x))
           rotateZ(var(--rot-z));
-      } @else if ($rotation == "z") {
+      } @else if ($axis == "z") {
         transform: $rule + rotateZ(0deg)
           rotateX(var(--rot-x))
           rotateY(var(--rot-y));
       }
     }
     to {
-      @if ($rotation == "x") {
+      @if ($axis == "x") {
         transform: $rule + rotateX(360deg)
           rotateY(var(--rot-y))
           rotateZ(var(--rot-z));
-      } @else if ($rotation == "y") {
+      } @else if ($axis == "y") {
         transform: $rule + rotateY(360deg)
           rotateX(var(--rot-x))
           rotateZ(var(--rot-z));
-      } @else if ($rotation == "z") {
+      } @else if ($axis == "z") {
         transform: $rule + rotateZ(360deg)
           rotateX(var(--rot-x))
           rotateY(var(--rot-y));

@@ -11,10 +11,10 @@
 @import "utilities/transform";
 
 // Components
-@import "components/viewport";
 @import "components/camera";
 @import "components/scene";
 @import "components/shape";
+@import "components/viewport";
 
 // Meshes
 @import "meshes/cube";
