@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dest",
-    "sass": "node-sass src/main.scss dest/style.css",
+    "clean": "rimraf dist",
+    "sass": "node-sass src/main.scss dist/style.css",
     "build": "yarn run clean && yarn run sass"
   },
   "author": "",
