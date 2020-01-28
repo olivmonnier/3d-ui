@@ -1,7 +1,9 @@
 .cube {
   --cube-edge: 8em;
-
+  
   > * {
+    --m: calc(.5*var(--cube-edge));
+
     position: absolute;
     margin: calc(-.5*var(--cube-edge));
     width: var(--cube-edge); height: var(--cube-edge);
@@ -9,21 +11,21 @@
   }
 
   > *:nth-child(1) {
-    transform: rotateY(  0deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateY(  0deg) translateZ(var(--m))
   }
   > *:nth-child(2) {
-    transform: rotateY( 90deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateY( 90deg) translateZ(var(--m))
   }
   > *:nth-child(3) {
-    transform: rotateY(180deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateY(180deg) translateZ(var(--m))
   }
   > *:nth-child(4) {
-    transform: rotateY(270deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateY(270deg) translateZ(var(--m))
   }
   > *:nth-child(5) {
-    transform: rotateX( 90deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateX( 90deg) translateZ(var(--m))
   }
   > *:nth-child(6) {
-    transform: rotateX(-90deg) translateZ(calc(.5*var(--cube-edge)))
+    transform: rotateX(-90deg) translateZ(var(--m))
   }
 }
