@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf dist",
+    "clean": "npx rimraf dist",
     "sass": "node-sass src/main.scss dist/style.css",
     "build": "yarn run clean && yarn run sass"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.12.0",
-    "rimraf": "^3.0.0"
+    "node-sass": "^4.12.0"
   }
 }
