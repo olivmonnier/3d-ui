@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "npx rimraf dist",
-    "sass": "node-sass src/main.scss dist/style.css",
+    "sass": "sass src/main.scss dist/style.css",
     "build": "yarn run clean && yarn run sass"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "node-sass": "^4.13.1"
+    "sass": "^1.49.7"
   }
 }

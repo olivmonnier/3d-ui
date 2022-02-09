@@ -1,7 +1,6 @@
 @mixin shape($geometry) {
   --geometry: #{$geometry};
 
-  -webkit-clip-path: var(--geometry);
   clip-path: var(--geometry);
   shape-outside: var(--geometry);
 }

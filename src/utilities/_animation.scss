@@ -1,0 +1,12 @@
+@include keyframe('rotation') {
+  from {
+    transform: rotate3d(0deg, 0deg, 0deg);
+  }
+  to {
+    transform: rotate3d(var(--rot-x, 0deg), var(--rot-y, 0deg), var(--rot-z, 0deg));
+  }
+}
+
+.rotate {
+  @include animation(rotation, var(--duration, 3s), var(--delay, 0s), var(--count, infinite), var(--mode, forwards), var(--timing, linear));
+}
