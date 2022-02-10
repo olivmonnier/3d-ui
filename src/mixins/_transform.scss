@@ -6,9 +6,8 @@
   --rot-y: #{$rotY};
   --rot-z: #{$rotZ};
   --scale: #{$scale};
-  --transform-duration: .3s;
 
-  transform: 
+  transform:
     translateX(-50%)
     translateY(-50%)
     translateX(var(--pos-x))
@@ -20,5 +19,4 @@
     scaleX(var(--scale))
     scaleY(var(--scale))
     scaleZ(var(--scale));
-  transition: transform var(--transform-duration) linear;
 }

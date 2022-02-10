@@ -1,12 +1,35 @@
 @include keyframe('rotation') {
-  from {
-    transform: rotate3d(0deg, 0deg, 0deg);
-  }
   to {
-    transform: rotate3d(var(--rot-x, 0deg), var(--rot-y, 0deg), var(--rot-z, 0deg));
+    transform: rotate3d(var(--rot-x), var(--rot-y), var(--rot-z));
+  }
+}
+@include keyframe('translation') {
+  to {
+    transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z));
+  }
+}
+@include keyframe('transformation') {
+  to {
+    transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z)) rotate3d(var(--rot-x), var(--rot-y), var(--rot-z));
   }
 }
 
+.rotate, .translate, .rotate.translate {
+  --transform-duration: 3s;
+  --transform-delay: 0s;
+  --transform-count: infinite;
+  --transform-mode: forwards;
+  --transform-timing: linear;
+}
+
 .rotate {
-  @include animation(rotation, var(--duration, 3s), var(--delay, 0s), var(--count, infinite), var(--mode, forwards), var(--timing, linear));
+  @include animation(rotation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
+}
+
+.translate {
+  @include animation(translation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
+}
+
+.rotate.translate {
+  @include animation(transformation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
 }
