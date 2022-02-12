@@ -1,35 +1,92 @@
 @include keyframe('rotation') {
+  from {
+    transform: rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
+  }
   to {
-    transform: rotate3d(var(--rot-x), var(--rot-y), var(--rot-z));
+    transform: rotateX(var(--rot-x-end)) rotateY(var(--rot-y-end)) rotateZ(var(--rot-z-end));
   }
 }
 @include keyframe('translation') {
+  from {
+    transform: translateX(var(--pos-x)) translateY(var(--pos-y)) translateZ(var(--pos-z));
+  }
   to {
-    transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z));
+    transform: translateX(var(--pos-x-end)) translateY(var(--pos-y-end)) translateZ(var(--pos-z-end));
+  }
+}
+@include keyframe('scaling') {
+  from {
+    transform: scaleX(var(--scale)) scaleY(var(--scale)) scaleZ(var(--scale));
+  }
+  to {
+    transform: scaleX(var(--scale-end)) scaleY(var(--scale-end)) scaleZ(var(--scale-end));
   }
 }
 @include keyframe('transformation') {
+  from {
+    transform:
+      translateX(var(--pos-x))
+      translateY(var(--pos-y))
+      translateZ(var(--pos-z))
+      rotateX(var(--rot-x))
+      rotateY(var(--rot-y))
+      rotateZ(var(--rot-z))
+      scaleX(var(--scale))
+      scaleY(var(--scale))
+      scaleZ(var(--scale));
+  }
   to {
-    transform: translate3d(var(--pos-x), var(--pos-y), var(--pos-z)) rotate3d(var(--rot-x), var(--rot-y), var(--rot-z));
+    transform:
+      translateX(var(--pos-x-end))
+      translateY(var(--pos-y-end))
+      translateZ(var(--pos-z-end))
+      rotateX(var(--rot-x-end))
+      rotateY(var(--rot-y-end))
+      rotateZ(var(--rot-z-end))
+      scaleX(var(--scale-end))
+      scaleY(var(--scale-end))
+      scaleZ(var(--scale-end));
   }
 }
 
-.rotate, .translate, .rotate.translate {
+.rotate, .translate, .transform {
   --transform-duration: 3s;
   --transform-delay: 0s;
   --transform-count: infinite;
   --transform-mode: forwards;
   --transform-timing: linear;
+  --transform-direction: normal;
 }
 
 .rotate {
-  @include animation(rotation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
+  --rot-x-end: var(--rot-x);
+  --rot-y-end: var(--rot-y);
+  --rot-z-end: var(--rot-z);
+
+  @include animation(rotation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
 }
 
 .translate {
-  @include animation(translation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
+  --pos-x-end: var(--pos-x);
+  --pos-y-end: var(--pos-y);
+  --pos-z-end: var(--pos-z);
+
+  @include animation(translation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+}
+.scale {
+  --scale-end: var(--scale);
+
+  @include animation(scaling, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
 }
 
-.rotate.translate {
-  @include animation(transformation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing));
+.transform {
+  --pos-x-end: var(--pos-x);
+  --pos-y-end: var(--pos-y);
+  --pos-z-end: var(--pos-z);
+  --rot-x-end: var(--rot-x);
+  --rot-y-end: var(--rot-y);
+  --rot-z-end: var(--rot-z);
+  --scale-end: var(--scale);
+
+  @include animation(transformation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
 }

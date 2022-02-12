@@ -1,8 +1,9 @@
-@mixin animation($animation, $duration, $delay: 0s, $count: infinite, $mode: forwards, $timing: linear) {
+@mixin animation($animation, $duration, $delay: 0s, $count: infinite, $mode: forwards, $timing: linear, $direction: normal) {
   animation-delay: $delay;
   animation-duration: $duration;
   animation-name: $animation;
   animation-fill-mode: $mode;
   animation-iteration-count: $count;
   animation-timing-function: $timing;
+  animation-direction: $direction;
 }
