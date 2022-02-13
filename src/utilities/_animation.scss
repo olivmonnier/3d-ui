@@ -54,10 +54,16 @@ $axis: (x, y, z);
   &:hover ~ .rotate-element {
     animation-play-state: running;
   }
+  &.rotate-reverse ~ .rotate-element {
+    --transform-direction: reverse;
+  }
 }
 [class*=".focus\:rotate-"] {
   &:focus ~ .rotate-element {
     animation-play-state: running;
+  }
+  &.rotate-reverse ~ .rotate-element {
+    --transform-direction: reverse;
   }
 }
 @each $a in $axis {
