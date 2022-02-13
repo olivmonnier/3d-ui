@@ -1,28 +1,6 @@
-@include keyframe('rotation') {
-  from {
-    transform: rotateX(var(--rot-x)) rotateY(var(--rot-y)) rotateZ(var(--rot-z));
-  }
-  to {
-    transform: rotateX(var(--rot-x-end)) rotateY(var(--rot-y-end)) rotateZ(var(--rot-z-end));
-  }
-}
-@include keyframe('translation') {
-  from {
-    transform: translateX(var(--pos-x)) translateY(var(--pos-y)) translateZ(var(--pos-z));
-  }
-  to {
-    transform: translateX(var(--pos-x-end)) translateY(var(--pos-y-end)) translateZ(var(--pos-z-end));
-  }
-}
-@include keyframe('scaling') {
-  from {
-    transform: scaleX(var(--scale)) scaleY(var(--scale)) scaleZ(var(--scale));
-  }
-  to {
-    transform: scaleX(var(--scale-end)) scaleY(var(--scale-end)) scaleZ(var(--scale-end));
-  }
-}
-@include keyframe('transformation') {
+$axis: (x, y, z);
+
+@include keyframe('transforming') {
   from {
     transform:
       translateX(var(--pos-x))
@@ -49,44 +27,41 @@
   }
 }
 
-.rotate, .translate, .transform {
-  --transform-duration: 3s;
-  --transform-delay: 0s;
-  --transform-count: infinite;
-  --transform-mode: forwards;
-  --transform-timing: linear;
-  --transform-direction: normal;
+.transform, .hover\:transform, .focus\:transform {
+  @include animation-transform;
 }
 
-.rotate {
-  --rot-x-end: var(--rot-x);
-  --rot-y-end: var(--rot-y);
-  --rot-z-end: var(--rot-z);
-
-  @include animation(rotation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+.hover\:transform, .focus\:transform {
+  animation-play-state: paused;
+}
+.hover\:transform:hover {
+  animation-play-state: running;
+}
+.focus\:transform {
+  &:focus, &:focus-within {
+    animation-play-state: running;
+  }
 }
 
-.translate {
-  --pos-x-end: var(--pos-x);
-  --pos-y-end: var(--pos-y);
-  --pos-z-end: var(--pos-z);
+[class*="hover\:rotate-"], [class*=".focus\:rotate-"] {
+  ~ .rotate-element {
+    @include animation-transform;
 
-  @include animation(translation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+    animation-play-state: paused;
+  }
 }
-.scale {
-  --scale-end: var(--scale);
-
-  @include animation(scaling, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+[class*="hover\:rotate-"] {
+  &:hover ~ .rotate-element {
+    animation-play-state: running;
+  }
 }
-
-.transform {
-  --pos-x-end: var(--pos-x);
-  --pos-y-end: var(--pos-y);
-  --pos-z-end: var(--pos-z);
-  --rot-x-end: var(--rot-x);
-  --rot-y-end: var(--rot-y);
-  --rot-z-end: var(--rot-z);
-  --scale-end: var(--scale);
-
-  @include animation(transformation, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+[class*=".focus\:rotate-"] {
+  &:focus ~ .rotate-element {
+    animation-play-state: running;
+  }
+}
+@each $a in $axis {
+  .hover\:rotate-#{$a} ~ .rotate-element, .focus\:rotate-#{$a} ~ .rotate-element {
+    --rot-#{$a}-end: 360deg;
+  }
 }

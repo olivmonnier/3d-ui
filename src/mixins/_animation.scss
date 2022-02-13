@@ -7,3 +7,28 @@
   animation-timing-function: $timing;
   animation-direction: $direction;
 }
+
+@mixin animation-transform() {
+  --pos-x-end: var(--pos-x);
+  --pos-y-end: var(--pos-y);
+  --pos-z-end: var(--pos-z);
+  --rot-x-end: var(--rot-x);
+  --rot-y-end: var(--rot-y);
+  --rot-z-end: var(--rot-z);
+  --scale-end: var(--scale);
+
+  --transform-duration: 10s;
+  --transform-delay: 0s;
+  --transform-count: infinite;
+  --transform-mode: forwards;
+  --transform-timing: linear;
+  --transform-direction: normal;
+
+  @include animation(transforming, var(--transform-duration), var(--transform-delay), var(--transform-count), var(--transform-mode), var(--transform-timing), var(--transform-direction));
+}
+
+@mixin animation-reverse() {
+  --transform-direction: reverse;
+
+  animation-play-state: running;
+}
