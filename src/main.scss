@@ -1,13 +1,10 @@
 @import "variables";
 
 // Mixins
-@import "mixins/animation";
-@import "mixins/keyframe";
 @import "mixins/shape";
 @import "mixins/transform";
 
 // Utilities
-@import "utilities/animation";
 
 // Components
 @import "components/camera";
@@ -17,3 +14,4 @@
 
 // Meshes
 @import "meshes/cube";
+@import "meshes/cylinder";

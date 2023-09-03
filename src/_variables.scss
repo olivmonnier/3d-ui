@@ -1,8 +1,9 @@
+// Math
+$pi: 3.14159265358979;
+$axes: "x", "y", "z";
+
 // Colors
 $black: #000 !default;
-
-// Axes
-$axes: "x", "y", "z";
 
 // Viewport
 $viewport-width: 500px !default;
@@ -55,5 +56,8 @@ $list-shapes: (
   "ellispe": ellipse(25% 40% at 50% 50%)
 ) !default;
 
-// Component
+// Components
+// Cube
 $cube-edge: 8em !default;
+// Cylinder
+$cylinder-height: 200px !default;

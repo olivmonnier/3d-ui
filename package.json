@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "npx rimraf dist",
     "sass": "sass src/main.scss dist/style.css",
-    "build": "yarn run clean && yarn run sass"
+    "build": "npm run clean && npm run sass"
   },
   "author": "",
   "license": "ISC",

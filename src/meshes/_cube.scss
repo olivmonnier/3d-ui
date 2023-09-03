@@ -2,7 +2,7 @@
   --cube-edge: #{$cube-edge};
 }
 
-.cube_face {
+.cube__face {
   --m: calc(.5*var(--cube-edge));
 
   position: absolute;

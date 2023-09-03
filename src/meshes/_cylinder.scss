@@ -1,0 +1,21 @@
+.cylinder {
+  --cylinder-height: #{$cylinder-height};
+  --face-count: 10;
+  --face-width: 100px;
+  --cylinder-width: calc(var(--face-width) * var(--face-count));
+  
+  position: relative;
+  height: var(--cylinder-height);
+  width: var(--cylinder-width);
+}
+
+.cylinder__face {
+  --face-deg: calc(360deg / var(--face-count));
+  --face-shift: calc(var(--cylinder-width) / #{$pi} / 2);
+
+  position: absolute;
+  height: 100%;
+  width: var(--face-width);
+  transform: rotateY(calc(var(--face-deg) * var(--index))) translateZ(calc(var(--face-shift) - -1px));
+  box-shadow: 0 0 0 1px;
+}

@@ -1,5 +1,0 @@
-@mixin keyframe($animation) {
-  @keyframes #{$animation} {
-    @content;
-  }
-}
